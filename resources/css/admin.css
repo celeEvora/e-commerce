@@ -1,0 +1,283 @@
+.admin-everything {
+    display: grid;
+    grid-template-columns: 17% 1fr;
+    /* display: flex; */
+    
+}
+
+.brandAdmin {
+    display: flex;
+}
+
+.body-products {
+    background-color: #eeeeef;
+
+    /* height: 100vh;
+    width: 100vw; */
+}
+
+.body-products h1{
+    text-align: center;
+}
+
+.aside-bar {
+    background-color: #283547;
+    color: white;
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+#SignOut {
+    color: white;
+    text-decoration: none;
+}
+
+#SignOut:hover {
+    color: rgb(154, 152, 189);
+}
+
+.ManageOption{
+    color: white;
+    text-decoration: none;
+}
+
+.ManageOption:hover{
+    color: rgb(154, 152, 189);
+}
+
+.bottom ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+.options {
+    margin-bottom: 1em;
+}
+
+#sO {
+    margin-top: auto;  
+    margin-top: 22rem;
+}
+
+#sO > button {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    padding: 0px;
+    margin-top: 1rem;
+}
+
+.bottom {
+    position: relative;
+    bottom: 0;
+}
+
+li:hover {
+    color: rgb(154, 152, 189);
+}
+
+
+/* body */
+.title-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-add button {
+    width: 15em;
+    margin-bottom: 1em;
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 94);
+    color: whitesmoke;
+    height: 2rem;
+    margin: 1em;
+    cursor: pointer;
+}
+
+.title-add button:hover{
+    filter: opacity(80%);
+}
+
+/* table */
+
+.div-table {
+    max-height: 30em; 
+    overflow-y: auto;
+    margin: 0em 7em 0 7em;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.table-style {
+    border-collapse: collapse;
+    font-size: 10px;
+    width: 100%;
+    background-color: rgb(236, 236, 236);
+    
+
+}
+
+.table-style tr:nth-child(2n) {
+    background-color: rgb(209, 209, 209);
+  }
+
+.table-style thead {
+    background-color: #313131; 
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: #eeeeef;
+}
+
+.table-style th{
+    padding: 1em;
+    width: 2em; 
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.table-style td{
+    padding: 0 0.5em 0 0.5em;
+    width: 21em; 
+    box-sizing: border-box;
+    
+}
+
+
+.table-style .table-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.table-buttons button {
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 94);
+    color: whitesmoke;
+    width: 4em;
+    height: 2rem;
+    margin: 1em;
+    cursor: pointer;
+    
+}
+
+.table-buttons button:nth-child(2){
+    background-color: rgb(134, 49, 76);
+}
+
+.table-buttons button:hover{
+    filter: opacity(80%);
+}
+
+/* products */
+
+.title-add .buttons {
+    display: inline;
+}
+
+
+/* users */
+.div-table-user {
+    max-height: 30em; 
+    width: 60em;
+    overflow-y: auto;
+    margin: 0em 5em 0 5em;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.table-buttons-users {
+    /* display: flex;
+    align-items: center;
+    box-sizing: border-box; */
+    text-align: center;
+}
+
+.table-buttons-users button{
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 94);
+    color: whitesmoke;
+    width: 4rem;
+    height: 2rem;
+    margin: 0.3em;
+    cursor: pointer;
+}
+
+.table-buttons-users button:nth-child(2){
+    background-color: rgb(134, 49, 76);
+}
+
+.table-buttons-users button:hover{
+    filter: opacity(80%);
+}
+
+
+/* ORDERS  */
+
+.table-buttons-orders button{
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 94);
+    color: whitesmoke;
+    width: 6rem;
+    height: 2rem;
+    margin: 0.3em;
+    cursor: pointer;
+}
+
+.body-orders {
+    background-color: #eeeeef;
+    display: flex;
+    flex-direction: column;    
+    /* height: 100vh;
+    width: 100vw; */
+}
+
+.body-orders h1 {
+    text-align: center;
+    /* height: 100vh;
+    width: 100vw; */
+}
+
+
+
+/* LOADING ANIMATION */
+
+  .loading-cell {
+    text-align: center;
+  }
+  
+  .loading-cell {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .loading-cell .loader {
+    display: inline-block;
+  }
+  
+  .loader {
+    border: 4px solid #cfcfcf;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

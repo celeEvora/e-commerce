@@ -1,0 +1,9 @@
+import "/resources/js/bootstrap.js";
+import App from "/resources/js/React App/App.jsx?t=1700359682947";
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=bf27b124"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react;
+import __vite__cjsImport3_reactDom_client from "/node_modules/.vite/deps/react-dom_client.js?v=bf27b124"; const ReactDOM = __vite__cjsImport3_reactDom_client.__esModule ? __vite__cjsImport3_reactDom_client.default : __vite__cjsImport3_reactDom_client;
+import { BrowserRouter } from "/node_modules/.vite/deps/react-router-dom.js?v=bf27b124";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(/* @__PURE__ */ React.createElement(BrowserRouter, null, /* @__PURE__ */ React.createElement(App, null)));
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qc3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICcuL2Jvb3RzdHJhcCc7XG5pbXBvcnQgQXBwIGZyb20gJy4vUmVhY3QgQXBwL0FwcCdcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCdcbmltcG9ydCBSZWFjdERPTSBmcm9tICdyZWFjdC1kb20vY2xpZW50J1xuaW1wb3J0IHsgQnJvd3NlclJvdXRlciB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCJcblxuY29uc3Qgcm9vdCA9IFJlYWN0RE9NLmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJyb290XCIpKVxucm9vdC5yZW5kZXIoPEJyb3dzZXJSb3V0ZXI+XG4gICAgPEFwcCAvPlxuPC9Ccm93c2VyUm91dGVyPikiXSwibWFwcGluZ3MiOiJBQUFBLE9BQU87QUFDUCxPQUFPLFNBQVM7QUFDaEIsT0FBTyxXQUFXO0FBQ2xCLE9BQU8sY0FBYztBQUNyQixTQUFTLHFCQUFxQjtBQUU5QixNQUFNLE9BQU8sU0FBUyxXQUFXLFNBQVMsZUFBZSxNQUFNLENBQUM7QUFDaEUsS0FBSyxPQUFPLG9DQUFDLHFCQUNULG9DQUFDLFNBQUksQ0FDVCxDQUFnQjsiLCJuYW1lcyI6W119

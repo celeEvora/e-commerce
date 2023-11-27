@@ -1,0 +1,28 @@
+
+/* div con el form */
+
+
+.div-edit {
+    width: 100%;
+}
+
+
+.inputs {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: gray; */
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+.input {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: gray; */
+    display: flex;
+    flex-direction: column;
+}

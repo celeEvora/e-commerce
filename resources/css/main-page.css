@@ -1,0 +1,70 @@
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 13%;
+    min-height: 15em;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+figure .image-container {
+    height: 50%;
+    width: 70%;
+}
+figure img {
+    width: 100%;
+    max-height: 100%;
+
+}
+
+figure:hover  img, figure:hover button{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: scale(1.1);
+}
+
+figure p {
+    text-align: center;
+    margin: 0.4em;
+}
+
+figure #title {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+figure #figure-button {
+    text-align: center;
+}
+
+figure #figure-button button{
+    border: none;
+    background-color: rgb(231, 119, 138);
+    width: 12em;
+    height: 2rem;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+figure #shoppingSymbol {
+    fill: white;
+    margin-right: 0.5em;
+}
