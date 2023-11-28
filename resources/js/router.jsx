@@ -12,6 +12,8 @@ import ManageUsers from './React App/Components/ManageUsers';
 import ManageOrders from './React App/Components/ManageOrders';
 import EditSaveForm from './React App/Components/edit-save';
 import ProtectedRoutes from './React App/Components/ProtectedRoutes';
+import BookDetails from './React App/Views/BookDetails';
+import ShoppingCart from './React App/Views/shopping-cart';
 
 
 
@@ -30,6 +32,16 @@ const router = createBrowserRouter([
     {
         path: 'signup',
         element: <SignUp />
+    },
+
+    {
+        path: 'info/:id',
+        element: <BookDetails />
+    },
+
+    {
+        path: 'shopping-cart',
+        element: <ShoppingCart />
     },
     
 

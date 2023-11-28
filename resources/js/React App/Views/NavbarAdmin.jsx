@@ -41,7 +41,7 @@ function NavbarAdmin () {
                         </div>
                         <div id='sO'>
                             <li><Link to="/" id='SignOut'>Go to Home Page</Link></li>
-                            <button onClick={logout}>Sign Out</button>
+                            <button className='SignOutAdmin' onClick={logout}>Sign Out</button>
                         </div>
                     </ul>
                     

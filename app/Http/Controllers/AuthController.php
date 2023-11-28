@@ -26,8 +26,12 @@ class AuthController extends Controller
         ]);
         User::create($data);
 
+        $user = User::where('email', $request->email)->first();
+
         return response()->json([
             'message' => 'User registered successfully!',
+            'user' => $user,
+            'token' => $user->createToken('API TOKEN')->plainTextToken,
         ], 201);
     } catch (Exception $e) {
         return response()->json(['error' => 'Couldn\'t register user', $e->getMessage()], 500);
@@ -44,7 +48,10 @@ public function login (Request $request) {
     if($validator-> fails()) return response()->json(['errors' => $validator->errors()], 400);
     if(Auth::attempt(["email" => $request->email, "password" => $request->password])){
         $request->session()->regenerate();
-        return response()->json(["user" => Auth::user()], 200);
+        $user = User::where('email', $request->email)->first();
+        return response()->json(["user" => Auth::user(),
+        'token' => $user->createToken('API TOKEN')->plainTextToken,
+    ], 200);
     }
     return response()->json(['errors' => 'Invalid credentials'], 400);
 }

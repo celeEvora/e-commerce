@@ -11,7 +11,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\OrderController; 
-use App\Http\Controllers\AuthController; 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,6 @@ Route::middleware(['auth:sanctum','is.admin'])->group(function() {
 
     Route::controller(BookController::class)->group(function(){
         Route::post('/catalog/store-book', 'store');
-        Route::get('/catalog/{id}', 'find');
         Route::put('/catalog/{id}', 'update');
         Route::delete('/catalog/{id}', 'destroy');
 
@@ -84,12 +84,17 @@ Route::middleware(['auth:sanctum','is.admin'])->group(function() {
 Route::controller(BookController::class)->group(function(){
     Route::get('/catalog', 'showCatalog');
     Route::get('/catalog-genre', 'ShowBookByGenre');
+    Route::get('/catalog/{id}', 'find');
 });
 
 Route::get('/genres',[GenreController::class, 'showGenres']);
 
-
-
+Route::controller(CartController::class)->group(function(){
+    Route::post('/cart-add/{id}', 'addToCart');
+    Route::post('/cart-put', 'updateCart');
+    Route::delete('/cart-remove/{id}', 'removeItem');
+    Route::get('/cart', 'getCart');
+});
 
 // route::view('/{path?}', 'index');
 Route::view('/{path?}', 'index')->where('path', '.*');

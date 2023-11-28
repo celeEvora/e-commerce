@@ -1,0 +1,68 @@
+.cart-body {
+    padding: 1em 15em 1em 15em;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table .item {
+    display: flex;
+    align-items: center;
+}
+
+.th-left {
+    text-align: left;
+}
+
+.th-right {
+    text-align: right;
+}
+
+.cart-table td, .cart-table th {
+    padding: 1em;
+    border-bottom: solid;
+    border-color: rgb(236, 235, 233);
+}
+
+.cart-table button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cart-table button:hover {
+    transform: scale(1.3);
+}
+
+.cart-table svg {
+    fill: #91545a;
+    font-size: 2em;
+}
+
+.cart-image {
+    width: 8em;
+    margin-right: 1em;
+}
+
+.cart-image img {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+
+.cart-table .total {
+    font-weight: bold;
+    border-top: solid;
+    border-color: rgb(228, 224, 218);
+} 
+
+.cart-table th {
+    border-bottom: solid;
+    border-color: rgb(228, 224, 218);
+}
+.cart-table input {
+    width: 3em;
+}
