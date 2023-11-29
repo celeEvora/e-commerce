@@ -71,7 +71,12 @@ const Navbar = ({searcher, search}) => {
                 { storage.get('authUser') ? (
                     <div className="right">
                         
-                        <div><p>Hello, {storage.get('authUser').first_name}!</p></div>
+                        <div className="my-profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                        <path fill="#351824" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                            <p>Hello, {storage.get('authUser').first_name}!</p>
+                            <div className="modal"><Link to='/my-orders'>My Orders</Link></div>
+                        </div>
 
                         <div>{storage.get('authUser').is_admin == 1 && (
                             <Link to="/admin" id="admin-dashboard">Admin Dashboard</Link>
@@ -100,7 +105,7 @@ const Navbar = ({searcher, search}) => {
                   )}
 
             </div>
-            <div className="sub-navbar">
+            {/* <div className="sub-navbar">
                 <ul className="categoryUl">
                     <li className="has-dropdown">More genres!
                         <div className="dropdown-menu">
@@ -122,7 +127,7 @@ const Navbar = ({searcher, search}) => {
                     <li><Link to="/login" className="category">Teen</Link></li>
                     <li><Link to="/login" className="category">Kids</Link></li>
                 </ul>
-            </div>        
+            </div>         */}
         </div>
         
     )

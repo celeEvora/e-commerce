@@ -42,8 +42,12 @@ class User extends Authenticatable
 
     protected $primaryKey = 'user_id';
 
-    public function addresses(): HasOne {
-        return $this->hasOne(Address::class, 'user_id', 'user_id');
+    // public function addresses(): HasOne {
+    //     return $this->hasOne(Address::class, 'user_id', 'user_id');
+    // }
+
+    public function addresses(): HasMany {
+        return $this->hasMany(Address::class, 'user_id', 'user_id');
     }
 
     public function orders(): HasMany {

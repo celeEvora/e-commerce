@@ -8,15 +8,50 @@ use App\Models\Book;
 
 class CartController extends Controller
 {
+    // public function addToCart($id)
+    // {
+    //     try {
+    //         $book = Book::findOrFail($id);
+
+    //         $cart = session()->get('cart', []);
+
+    //         if (isset($cart[$id])) {
+    //             $cart[$id]['quantity']++;
+    //         } else {
+    //             $cart[$id] = [
+    //                 "book_id" => $book->book_id,
+    //                 "title" => $book->title,
+    //                 "quantity" => 1,
+    //                 "sale_price" => $book->sale_price,
+    //                 "image" => $book->image,
+    //                 "author" => $book->author,
+    //                 "stock" => $book->stock,
+    //             ];
+    //         }
+
+    //         session()->put('cart', $cart);
+
+    //         return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => array_values($cart)]);
+    //         // return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => $cart]);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['success' => false, 'message' => 'Error adding product to cart', 'error' => $e->getMessage()]);
+    //     }
+    // }
+
     public function addToCart($id)
     {
         try {
             $book = Book::findOrFail($id);
-
+    
             $cart = session()->get('cart', []);
-
+    
             if (isset($cart[$id])) {
-                $cart[$id]['quantity']++;
+                // Verificar si la cantidad en el carrito es menor que el stock disponible
+                if ($cart[$id]['quantity'] < $book->stock) {
+                    $cart[$id]['quantity']++;
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Cannot add more items to cart. Stock limit reached.']);
+                }
             } else {
                 $cart[$id] = [
                     "book_id" => $book->book_id,
@@ -25,38 +60,40 @@ class CartController extends Controller
                     "sale_price" => $book->sale_price,
                     "image" => $book->image,
                     "author" => $book->author,
+                    "stock" => $book->stock,
                 ];
             }
-
+    
             session()->put('cart', $cart);
-
-            // Devuelve una respuesta JSON con el contenido actualizado del carrito
+    
             return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => array_values($cart)]);
-            // return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => $cart]);
         } catch (\Exception $e) {
-            // En caso de error, devuelve una respuesta JSON con el mensaje de error
             return response()->json(['success' => false, 'message' => 'Error adding product to cart', 'error' => $e->getMessage()]);
         }
     }
+    
 
-    public function updateCart($id, $quantity)
-    {
-        try {
-            $cart = session()->get('cart', []);
+    public function updateCart(Request $request)
+{
+    try {
+        $id = $request->input('id');
+        $quantity = $request->input('quantity');
 
-            if (isset($cart[$id])) {
-                $cart[$id]['quantity'] = $quantity;
+        $cart = session()->get('cart', []);
 
-                session()->put('cart', $cart);
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $quantity;
 
-                return response()->json(['success' => true, 'message' => 'Cart updated successfully', 'cart' => $cart]);
-            } else {
-                return response()->json(['success' => false, 'message' => 'Product not found in cart']);
-            }
-        } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => 'Error updating cart', 'error' => $e->getMessage()]);
+            session()->put('cart', $cart);
+
+            return response()->json(['success' => true, 'message' => 'Cart updated successfully', 'cart' => array_values($cart)]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Product not found in cart']);
         }
+    } catch (\Exception $e) {
+        return response()->json(['success' => false, 'message' => 'Error updating cart', 'error' => $e->getMessage()]);
     }
+}
 
 
     public function removeItem($id)
@@ -69,7 +106,6 @@ class CartController extends Controller
 
             session()->put('cart', $cart);
 
-            // Devuelve una respuesta JSON con el contenido actualizado del carrito
             return response()->json(['success' => true, 'message' => 'Product removed from cart successfully', 'cart' => array_values($cart)]);
         } else {
             return response()->json(['success' => false, 'message' => 'Product not found in cart']);

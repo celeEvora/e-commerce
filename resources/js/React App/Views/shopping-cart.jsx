@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../Components/navbar';
 import '../../../css/cart.css'
 
@@ -33,6 +34,17 @@ const ShoppingCart = () => {
     console.error('Error removing item from cart:', error.message);
   }
 };
+
+const updateCartItem = async (id, quantity) => {
+    try {
+      const response = await axios.post('/cart-update', { id, quantity });
+      console.log(response.data);
+
+      setCart(response.data.cart);
+    } catch (error) {
+      console.error('Error updating item quantity:', error.message);
+    }
+  };
 
     const calculateTotal = () => {
         return cart.reduce((total, item) => total + item.sale_price * item.quantity, 0);
@@ -71,8 +83,10 @@ const ShoppingCart = () => {
                             <input
                             type='number'
                             min='1'
+                            max={item.stock}
                             value={item.quantity}
                             name='quantity'
+                            onChange={(e) => updateCartItem(item.book_id, e.target.value)}
                             >
                             </input>
                         </div>
@@ -92,7 +106,8 @@ const ShoppingCart = () => {
             ))}
 
                 <tr className='cart-tr-h'>
-                    <td colSpan={2} className='th-right total'>Total</td>
+                    <td><Link to='/checkout'>Checkout</Link></td>
+                    <td className='th-right total'>Total</td>
                     <td className='th-right total'>${calculateTotal()}</td>
                     <td className='total'></td>
                 </tr>

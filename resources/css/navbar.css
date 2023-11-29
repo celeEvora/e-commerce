@@ -84,6 +84,15 @@ img {
     cursor: pointer;
 }
 
+.right .my-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right .my-profile svg {
+    margin-right: 0.4em;
+}
 
 .sub-navbar {
     display: flex;
@@ -162,3 +171,34 @@ img {
     text-align: center;
 }
 
+
+
+
+/* menu my-profile */
+
+.my-profile {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .my-profile:hover .modal {
+    display: block;
+  }
+
+  .modal > a{
+    margin-right: 1em;
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+    font-size: 1rem;
+}

@@ -22,7 +22,8 @@ const BookDetails = () => {
     const addToCart = async () => {
         try {
             const response = await axios.post(`/cart-add/${id}`);
-            console.log(response.data); // Puedes imprimir el contenido del carrito en la consola
+            console.log(response.data); 
+            alert(response.data.message)
         } catch (error) {
             console.error('Error adding to cart:', error.message);
         }
@@ -62,7 +63,7 @@ const BookDetails = () => {
             <h3>{book.author}</h3>
             <hr />
             <p id='book_price'>${book.sale_price}</p>
-            <p id='status'>AVAILABLE</p>
+            <p id='status'>IN STOCK {book.stock}</p>
             <div id='figure-button'>
                 <button onClick={addToCart}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" id='shoppingSymbol'>

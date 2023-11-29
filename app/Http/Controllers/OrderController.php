@@ -17,19 +17,6 @@ class OrderController extends Controller
         return $ordersPlaced;
     }
 
-    // public function cancelOrder($orderId)
-    // {
-    //     try {
-    //         $order = Order::findOrFail($orderId);
-    //         $order->status = 'canceled';
-    //         $order->save();
-
-    //         return response()->json(['message' => 'Order canceled successfully']);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['message' => 'Error canceling order', 'error' => $e->getMessage()], 500);
-    //     }
-    // }
-
     public function cancelOrder($orderId)
 {
     try {
@@ -52,4 +39,10 @@ class OrderController extends Controller
     }
 }
 
+
+        public function showAllOrders($id) {
+            $orders = Order::where('user_id', $id)->get();
+
+            return $orders;
+        }
 }

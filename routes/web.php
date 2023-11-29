@@ -13,6 +13,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController; 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,10 +93,22 @@ Route::get('/genres',[GenreController::class, 'showGenres']);
 
 Route::controller(CartController::class)->group(function(){
     Route::post('/cart-add/{id}', 'addToCart');
-    Route::post('/cart-put', 'updateCart');
+    Route::post('/cart-update', 'updateCart');
     Route::delete('/cart-remove/{id}', 'removeItem');
     Route::get('/cart', 'getCart');
 });
+
+Route::controller(CheckoutController::class)->group(function(){
+    Route::post('/checkout', 'checkout');
+});
+
+Route::middleware('auth:sanctum')->group(function() {
+
+    Route::get('/show-my-orders/{id}',[OrderController::class, 'showAllOrders']);
+    Route::get('/order-details/{id}',[OrderDetailController::class, 'showOrderDetails']);
+
+});
+
 
 // route::view('/{path?}', 'index');
 Route::view('/{path?}', 'index')->where('path', '.*');

@@ -41,7 +41,6 @@ class BookController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Book saved successfully']);
         } catch (Exception $e) {
-            // Manejar el error y devolver una respuesta JSON indicando el error
             return response()->json(['status' => 'error', 'message' => 'Error saving book', 'error' => $e->getMessage()], 500);
 
     }

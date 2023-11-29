@@ -14,6 +14,8 @@ import EditSaveForm from './React App/Components/edit-save';
 import ProtectedRoutes from './React App/Components/ProtectedRoutes';
 import BookDetails from './React App/Views/BookDetails';
 import ShoppingCart from './React App/Views/shopping-cart';
+import Checkout from './React App/Views/checkout';
+import MyOrders from './React App/Views/my-orders';
 
 
 
@@ -43,11 +45,34 @@ const router = createBrowserRouter([
         path: 'shopping-cart',
         element: <ShoppingCart />
     },
-    
+
+    {
+        path: 'checkout',
+        element: <ProtectedRoutes />,
+        children: [
+            {
+                path: '/checkout',
+                element: <Checkout />,
+            }
+        ]
+        
+    },
+
+    {
+        path: 'my-orders',
+        element: <ProtectedRoutes />,
+        children: [
+            {
+                path: '/my-orders',
+                element: <MyOrders />,
+            }
+        ]
+        
+    },
 
     {
       path: 'admin',
-      element: <ProtectedRoutes />,
+      element: <ProtectedRoutes admin />,
       children: [
         {
           path: '/admin',

@@ -85,7 +85,7 @@ const ManageOrders = () => {
                             <td>{order.user_id}</td>
                             <td>{order.status}</td>
                             <td>{order.payment_method}</td>
-                            <td>{order.payment_amount}</td>
+                            <td>${order.payment_amount}</td>
                             <td><div className='table-buttons-orders'>
                             <button onClick={() => cancelOrder(order.order_id)}>Cancel Order</button>
                             </div></td>
