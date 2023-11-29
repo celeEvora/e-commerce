@@ -27,30 +27,6 @@ use App\Http\Controllers\OrderDetailController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
-// Route::post('/register',
-
-// Route::post('/login', function (Request $request) {
-//     if(Auth::check()) return response()->json(['msg' => "You are already authenticated!"], 200);
-//     $validator = Validator::make($request->all(), [
-//         'email' => ['required', 'email'],
-//         'password' => ['required']
-//     ]);
-//     if($validator-> fails()) return response()->json(['errors' => $validator->errors()], 400);
-//     if(Auth::attempt(["email" => $request->email, "password" => $request->password])){
-//         $request->session()->regenerate();
-//         return response()->json(["user" => Auth::user()], 200);
-//     }
-//     return response()->json(['errors' => 'Invalid credentials'], 400);
-// })-> name('login');
-
-// Route::get('/logout', function() {
-//     Auth::logout();
-//     return response()->json(['is_auth' => Auth::check()], 200);
-// });
 
 Route::controller(AuthController::class)->group(function(){
     Route::post('/register', 'register');
@@ -71,6 +47,8 @@ Route::middleware(['auth:sanctum','is.admin'])->group(function() {
     Route::controller(UserController::class)->group(function(){
         Route::get('/users', 'showUsers');
         Route::delete('/users/{id}', 'destroy');
+        Route::post('/admin-role/{id}', 'makeAdmin');
+        Route::post('/remove-admin/{id}', 'removeAdmin');
     });
 
     Route::controller(OrderController::class)->group(function(){

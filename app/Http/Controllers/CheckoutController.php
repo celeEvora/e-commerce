@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Address;
+use App\Models\Book;
 use App\Models\User;
 
 
@@ -60,6 +61,10 @@ class CheckoutController extends Controller
             ]);
 
             $orderDetail->save();
+
+            $bookModel = Book::findOrFail($book['book_id']);
+            $bookModel->stock -= $book['quantity'];
+            $bookModel->save();
         }
 
 

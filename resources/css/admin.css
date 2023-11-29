@@ -232,6 +232,48 @@ li:hover {
 }
 
 
+.admin-privileges {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-privileges input[type=text] {
+    padding: 0.5em;
+}
+
+.admin-privileges div {
+    display: inline-block;
+    text-align: center;
+}
+
+.admin-privileges button {
+    padding: 0.5em;
+    margin: 0.3em;
+    width: 10em;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-privileges #AdminRol {
+    background-color: rgb(98, 211, 23);
+    border: none;
+}
+
+.admin-privileges #AdminRol:hover {
+    background-color: rgb(140, 226, 82);
+}
+
+.admin-privileges #RemoveAdminRol {
+    background-color: rgb(236, 67, 45);
+    border: none;
+}
+
+.admin-privileges #RemoveAdminRol:hover {
+    background-color: rgb(226, 116, 82);
+}
+
 /* ORDERS  */
 
 .table-buttons-orders button{

@@ -8,35 +8,6 @@ use App\Models\Book;
 
 class CartController extends Controller
 {
-    // public function addToCart($id)
-    // {
-    //     try {
-    //         $book = Book::findOrFail($id);
-
-    //         $cart = session()->get('cart', []);
-
-    //         if (isset($cart[$id])) {
-    //             $cart[$id]['quantity']++;
-    //         } else {
-    //             $cart[$id] = [
-    //                 "book_id" => $book->book_id,
-    //                 "title" => $book->title,
-    //                 "quantity" => 1,
-    //                 "sale_price" => $book->sale_price,
-    //                 "image" => $book->image,
-    //                 "author" => $book->author,
-    //                 "stock" => $book->stock,
-    //             ];
-    //         }
-
-    //         session()->put('cart', $cart);
-
-    //         return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => array_values($cart)]);
-    //         // return response()->json(['success' => true, 'message' => 'Product added to cart successfully', 'cart' => $cart]);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['success' => false, 'message' => 'Error adding product to cart', 'error' => $e->getMessage()]);
-    //     }
-    // }
 
     public function addToCart($id)
     {
@@ -46,7 +17,6 @@ class CartController extends Controller
             $cart = session()->get('cart', []);
     
             if (isset($cart[$id])) {
-                // Verificar si la cantidad en el carrito es menor que el stock disponible
                 if ($cart[$id]['quantity'] < $book->stock) {
                     $cart[$id]['quantity']++;
                 } else {

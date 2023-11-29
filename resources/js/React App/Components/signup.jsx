@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios'; // Asegúrate de importar axios
 import '../../../css/login.css';
+import logo from "../books.svg"
+
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -41,6 +42,12 @@ console.log(formData)
 
   return (
     <div className='containerForm'>
+      <div className="brand">
+                <Link to='/'>
+                    <img src={logo} />
+                    <h1>BookStore</h1>
+                </Link>
+                </div>
       <form id='loginForm' onSubmit={register}>
         <h1>Create an Account</h1>
         <div className='names'>

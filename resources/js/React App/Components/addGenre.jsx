@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Asegúrate de importar axios
 
 const AddGenre = ({ ShowBookByGenre, close }) => {
   const [genreName, setGenreName] = useState('');

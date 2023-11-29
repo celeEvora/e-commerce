@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../../css/admin.css';
+import Popup from 'reactjs-popup';
+import AdminRole from './adminRole';
 
 function Loader() {
     return (
@@ -62,6 +64,15 @@ const ManageUsers = () => {
     return (       
             <div className='body-products'>
             <h1>Users</h1>
+            <div className='title-add'>
+            <Popup trigger={<button>Give Admin Role</button>} modal>
+            {(close)=> (
+                          <AdminRole showUsers={showUsers} close={close} />
+                      )}
+                  </Popup>
+                
+                </div>
+                      
             <div className='div-table-user'>
             
                 <table className='table-style'>
@@ -72,6 +83,7 @@ const ManageUsers = () => {
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Admin</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -85,8 +97,8 @@ const ManageUsers = () => {
                             <td>{user.last_name}</td>
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
+                            <td>{user.is_admin === 1 ? 'Yes' : 'No'}</td>
                             <td><div className='table-buttons-users'>
-                            <button>Edit</button>
                             <button onClick={() => deleteUser(user.user_id)}>Delete</button>
                             </div></td>
                         </tr>

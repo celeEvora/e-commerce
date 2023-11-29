@@ -96,22 +96,11 @@ const EditSaveForm = ({ book, ShowBookByGenre, close }) => {
                     />
                 </div>
 
-                {/* <div className='input'>
-                    <label >Genre</label>          
-                    <input 
-                        type='text'
-                        id='genre-book'
-                        name='genre_id' 
-                        value={formData.genre_id}
-                        onChange={handleChange}
-                    />
-                </div> */}
-
 <div className='input'>
   <label>Genre</label>
   <select
     id='genre-book'
-    name='genre_id'  // Corrected name to 'genre_id'
+    name='genre_id'  
     value={formData.genre_id}
     onChange={handleChange}
   >

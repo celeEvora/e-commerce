@@ -9,7 +9,7 @@
     font-size: 1.25rem;
 }
 
-.brand {
+.brand a {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -202,3 +202,56 @@ img {
     color: rgb(53, 53, 53);
     font-size: 1rem;
 }
+
+
+ @media screen and (max-width: 980px) {
+    /* .navbar .right {
+        display: none;
+    } */
+
+    .brand {
+        display: none;
+    }
+    .navbar .search {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .navbar .search input {
+        width: 100%;
+    }
+
+    .navbar .brand h1 {
+        font-size: 1.5em;
+    }
+
+    .my-profile > svg {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .navbar .right {
+        display: none;
+    }
+
+    .navbar .search {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .navbar .search input {
+        width: 100%;
+    }
+
+    .navbar .brand h1 {
+        font-size: 1.5em;
+    }
+
+
+    
+}
+ 
+
+
+ 

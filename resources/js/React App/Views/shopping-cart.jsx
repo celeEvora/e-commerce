@@ -54,6 +54,9 @@ const updateCartItem = async (id, quantity) => {
       <Navbar />
       <div className='cart-body'>
         <h2>Shopping Cart</h2>
+        {cart.length === 0 ? (
+          <div className="empty-cart-message">Your cart is empty. Start shopping now!</div>
+        ) : (
             <table className='cart-table'>
                 <thead>
                     <tr className='cart-tr-h'>
@@ -106,14 +109,15 @@ const updateCartItem = async (id, quantity) => {
             ))}
 
                 <tr className='cart-tr-h'>
-                    <td><Link to='/checkout'>Checkout</Link></td>
+                    <td><div><Link to='/checkout'>Checkout</Link></div></td>
                     <td className='th-right total'>Total</td>
                     <td className='th-right total'>${calculateTotal()}</td>
                     <td className='total'></td>
                 </tr>
             </tbody>
           
-            </table>      
+            </table> 
+            )}     
         </div>
     </>
   );

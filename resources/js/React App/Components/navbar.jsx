@@ -52,8 +52,10 @@ const Navbar = ({searcher, search}) => {
         <div className="navbar">
             <div className="container">
                 <div className="brand">
-                <img src={logo} />
-                <h1>BookStore</h1>
+                <Link to='/'>
+                    <img src={logo} />
+                    <h1>BookStore</h1>
+                </Link>
                 </div>
 
                 <div className="search">
@@ -105,29 +107,7 @@ const Navbar = ({searcher, search}) => {
                   )}
 
             </div>
-            {/* <div className="sub-navbar">
-                <ul className="categoryUl">
-                    <li className="has-dropdown">More genres!
-                        <div className="dropdown-menu">
-                            <ul className="categoryUl">
-                                <div className="dropdown-menu-div">
-                                    {genres.map(genre => (
-                                        
-                                        <li key={genre.genre_id} className="dropdown-menu-li">{genre.name}</li>
-                                        
-                                    ))}
-                                </div>      
-                            </ul>
-                        </div>
-                    </li>
-                    <li><Link to="/login" className="category">Fiction</Link></li>
-                    <li><Link to="/login" className="category">Fantasy</Link></li>
-                    <li><Link to="/login" className="category">Action</Link></li>
-                    <li><Link to="/login" className="category">Romance</Link></li>
-                    <li><Link to="/login" className="category">Teen</Link></li>
-                    <li><Link to="/login" className="category">Kids</Link></li>
-                </ul>
-            </div>         */}
+            
         </div>
         
     )

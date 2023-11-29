@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 // import {sendRequestWithToken} from '../../../functions'
 import storage from '../../../Storage/storage';
 import '../../../css/login.css'
-
+import logo from "../books.svg"
 
 function Login() {
 
@@ -39,6 +39,12 @@ function Login() {
     return (
         
         <div className='containerForm'>
+            <div className="brand">
+                <Link to='/'>
+                    <img src={logo} />
+                    <h1>BookStore</h1>
+                </Link>
+                </div>
         <form id="loginForm" onSubmit={login}>
            <h1>Sign in or Create an Account</h1>
             <label>Email</label>

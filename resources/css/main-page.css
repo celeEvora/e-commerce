@@ -64,32 +64,59 @@ a {
 }
 
 
-@media screen and (max-width: 768px) {
+
+@media screen and (min-width: 655px) and (max-width: 760px) {
     .cards {
-        justify-content: space-around;
-    }
-
-    figure {
-        flex-basis: 30%;
-        margin: 10px;
-    }
-
-    figure .image-container {
-        height: 15em;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .cards {
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-rows: 1fr;        
+        grid-template-columns: 1fr 1fr 1fr;        
         align-items: center;
         width: 100%;
     }
 
-    figure {
+    .cards figure {
+        display: flex;
         flex-basis: 100%;
         text-align: center;
+        height: 10em;
+    }
+
+    .image-container img {
+        width: 10em;
+        height: 20em;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 654px) {
+    .cards {
+        display: grid;
+        grid-template-rows: 1fr;        
+        grid-template-columns: 1fr 1fr;        
+        align-items: center;
+        width: 100%;
+    }
+
+    .cards figure {
+        display: flex;
+        flex-basis: 100%;
+        text-align: center;
+        height: 10em;
+    }
+
+    .image-container img {
+        width: 10em;
+        height: 20em;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

@@ -10,25 +10,11 @@ use DB;
 
 class UserController extends Controller
 {
-    // public function store(){
-        
-    // }
 
     public function showUsers() {
         $users = User::all();
         return $users;
     }
-
-    // public function store(Request $request)
-    // {
-    //     $rules = [
-    //         'first_name' => 'required|string|min:1|max:100',
-    //         'last_name' => 'required|string|min:1|max:100',
-    //         'email' => 'required|email|max:80',
-    //         'phone' => 'required|string|max:15',
-    //         'is_admin' =>'required|boolean|max:1'
-    //     ];
-    // }
 
     public function destroy($id) {
         try {$user = User::destroy($id);
@@ -37,5 +23,33 @@ class UserController extends Controller
                 return response($e->getMessage  (), 500);
             }
         
+    }
+
+    public function makeAdmin(Request $request, $id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->is_admin = 1; 
+            $user->save();
+
+            return response()->json(['success' => true, 'message' => 'User is now an admin']);
+        } catch (\Exception $e) {
+            \Log::error('Error making user admin: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+    }
+
+    public function removeAdmin($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->is_admin = 0; 
+            $user->save();
+
+            return response()->json(['success' => true, 'message' => 'Admin privileges removed']);
+        } catch (\Exception $e) {
+            \Log::error('Error removing admin privileges: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 }

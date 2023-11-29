@@ -29,7 +29,6 @@ const SaveProduct = ({ ShowBookByGenre, close }) => {
             const response = await axios.get('/genres');
             setGenres(response.data);
     
-            // Set the initial state for genre_id after fetching genres
             if (response.data.length > 0) {
               setFormData({
                 ...formData,
@@ -43,7 +42,7 @@ const SaveProduct = ({ ShowBookByGenre, close }) => {
     
         axios.get('/sanctum/csrf-cookie');
         fetchGenres();
-      }, []); // Empty dependency array since we don't need to re-run this effect
+      }, []); 
     
       const handleChange = (e) => {
         setFormData({
@@ -65,25 +64,6 @@ const SaveProduct = ({ ShowBookByGenre, close }) => {
         }
       };
     
-      // const handleChange = (e) => {
-      //   setFormData({
-      //     ...formData,
-      //     [e.target.name]: e.target.value,
-      //   });
-      // };
-
-      // const handleChange = (e) => {
-      //   console.log('Selected Genre ID:', e.target.value);
-      //   setFormData({
-      //     ...formData,
-      //     [e.target.name]: e.target.value,
-      //   });
-      // };
-      
-      // useEffect(() => {
-      //   console.log('Genres:', genres);
-      // }, [genres]);
-
 
     return (
         <div className='div-edit'>
@@ -102,17 +82,6 @@ const SaveProduct = ({ ShowBookByGenre, close }) => {
                         onChange={handleChange}
                     />
                 </div>
-
-                {/* <div className='input'>
-                    <label >Genre</label>          
-                    <input 
-                        type='text'
-                        id='genre-book'
-                        name='genre_id' 
-                        value={formData.genre_id}
-                        onChange={handleChange}
-                    />
-                </div> */}
 
                 <div className='input'>
                   <label>Genre</label>

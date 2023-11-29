@@ -34,3 +34,22 @@
 .table-orders table th,td{
     padding: 0.5em;
 }
+
+@media screen and (max-width: 758px) {
+    .my-orders-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .my-orders-container div {
+        background-color: rgb(248, 244, 244);
+        border-radius: 5px;
+        border: 1px solid rgb(172, 201, 202);
+        padding: 0 1em 1em 1em;
+        margin: 1em;
+        width: 80%;
+        overflow-x: auto;
+    }
+}

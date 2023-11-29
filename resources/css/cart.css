@@ -66,3 +66,21 @@
 .cart-table input {
     width: 3em;
 }
+
+.cart-tr-h a {
+    font-weight: bold;
+    background-color: rgb(18, 201, 18);
+    padding: 0.4rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.cart-tr-h div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-tr-h div:hover {
+    transform: scale(1.1);
+}
