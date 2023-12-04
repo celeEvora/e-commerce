@@ -13,6 +13,10 @@ class CartController extends Controller
     {
         try {
             $book = Book::findOrFail($id);
+
+            if ($book->stock <= 0) {
+                return response()->json(['success' => false, 'message' => 'Product is out of stock.']);
+            }
     
             $cart = session()->get('cart', []);
     
@@ -44,46 +48,46 @@ class CartController extends Controller
     
 
     public function updateCart(Request $request)
-{
-    try {
-        $id = $request->input('id');
-        $quantity = $request->input('quantity');
+    {
+        try {
+            $id = $request->input('id');
+            $quantity = $request->input('quantity');
 
-        $cart = session()->get('cart', []);
+            $cart = session()->get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity'] = $quantity;
+            if (isset($cart[$id])) {
+                $cart[$id]['quantity'] = $quantity;
 
-            session()->put('cart', $cart);
+                session()->put('cart', $cart);
 
-            return response()->json(['success' => true, 'message' => 'Cart updated successfully', 'cart' => array_values($cart)]);
-        } else {
-            return response()->json(['success' => false, 'message' => 'Product not found in cart']);
+                return response()->json(['success' => true, 'message' => 'Cart updated successfully', 'cart' => array_values($cart)]);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Product not found in cart']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Error updating cart', 'error' => $e->getMessage()]);
         }
-    } catch (\Exception $e) {
-        return response()->json(['success' => false, 'message' => 'Error updating cart', 'error' => $e->getMessage()]);
     }
-}
 
 
     public function removeItem($id)
-{
-    try {
-        $cart = session()->get('cart', []);
+    {
+        try {
+            $cart = session()->get('cart', []);
 
-        if (isset($cart[$id])) {
-            unset($cart[$id]);
+            if (isset($cart[$id])) {
+                unset($cart[$id]);
 
-            session()->put('cart', $cart);
+                session()->put('cart', $cart);
 
-            return response()->json(['success' => true, 'message' => 'Product removed from cart successfully', 'cart' => array_values($cart)]);
-        } else {
-            return response()->json(['success' => false, 'message' => 'Product not found in cart']);
+                return response()->json(['success' => true, 'message' => 'Product removed from cart successfully', 'cart' => array_values($cart)]);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Product not found in cart']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Error removing product from cart', 'error' => $e->getMessage()]);
         }
-    } catch (\Exception $e) {
-        return response()->json(['success' => false, 'message' => 'Error removing product from cart', 'error' => $e->getMessage()]);
     }
-}
 
 
     
